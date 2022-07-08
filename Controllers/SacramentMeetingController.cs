@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using sacramentMeetingPlanner.Models;
+using sacramentMeetingPlanner.Data;
 
 namespace sacramentMeetingPlanner.Controllers
 {
@@ -22,6 +23,7 @@ namespace sacramentMeetingPlanner.Controllers
         public async Task<IActionResult> Index()
         {
             var sacramentMeetingPlannerContext = _context.SacramentMeeting.Include(s => s.Bishopric).Include(s => s.Hymn);
+            Console.Write(sacramentMeetingPlannerContext);
             return View(await sacramentMeetingPlannerContext.ToListAsync());
         }
 

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using sacramentMeetingPlanner.Models;
 
+namespace sacramentMeetingPlanner.Data {
+
     public class sacramentMeetingPlannerContext : DbContext
     {
         public sacramentMeetingPlannerContext (DbContextOptions<sacramentMeetingPlannerContext> options)
@@ -12,7 +14,20 @@ using sacramentMeetingPlanner.Models;
         {
         }
 
-        public DbSet<sacramentMeetingPlanner.Models.SacramentMeeting>? SacramentMeeting { get; set; }
+        public DbSet<SacramentMeeting>? SacramentMeeting { get; set; }
 
-        public DbSet<sacramentMeetingPlanner.Models.Speaker>? Speaker { get; set; }
+        public DbSet<Speaker>? Speaker { get; set; }
+
+        public DbSet<Hymn>? Hymn { get; set; }
+
+        public DbSet<Bishopric>? Bishopric { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SacramentMeeting>().ToTable("SacramentMeeting");
+            modelBuilder.Entity<Speaker>().ToTable("Speaker");
+            modelBuilder.Entity<Bishopric>().ToTable("Bishopric");
+            modelBuilder.Entity<Hymn>().ToTable("Hymn");
+        }
     }
+}
