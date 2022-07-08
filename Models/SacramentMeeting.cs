@@ -24,39 +24,37 @@ namespace sacramentMeetingPlanner.Models
         public DateTime Date { get; set; }
 
         [Required]
-        [Range(1, 341)]
         [Display(Name = "Opening Hymn")]
-        public Hymn OpeningHymn { get; set; }
+        public int OpeningHymn { get; set; }
 
         [Required]
-        [Range(1, 341)]
         [Display(Name = "Sacrament Hymn")]
-        public Hymn SacramentHymn { get; set; }
+        public int SacramentHymn { get; set; }
 
         [Required]
-        [Range(1, 341)]
         [Display(Name = "Closing Hymn")]
-        public Hymn ClosingHymn { get; set; }
+        public int ClosingHymn { get; set; }
 
         [Required]
-        [Range(1, 341)]
         [Display(Name = "Dismissal Hymn")]
-        public Hymn DismissalHymn { get; set; }
+        public int DismissalHymn { get; set; }
         
         [Required]
-        public Bishopric Presiding { get; set; }
+        public int Presiding { get; set; }
 
         [Required]
-        public Bishopric Conducting { get; set; }
+        public int Conducting { get; set; }
 
         
         public int SpeakerID { get; set; }
-
         
         public int BishopricID { get; set; }
 
+        public Bishopric Bishopric { get; set; }
         
         public int HymnID { get; set; }
+
+        public Hymn Hymn { get; set; }
 
     }
 }

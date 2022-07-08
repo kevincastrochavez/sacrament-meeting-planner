@@ -10,6 +10,7 @@ namespace sacramentMeetingPlanner.Models
         public int HymnID { get; set; }
 
         [Required]
+        [Range(1, 341)]
         public int Number { get; set; }
 
         [Required]
