@@ -16,3 +16,79 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.detailsSacramentProgram {
+  background-color: rgb(171, 214, 240);
+  border: 2px solid black;
+  width: 800px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.fillerDots {
+  font-size: 2em;
+  margin: 0;
+  text-align: center;
+}
+
+.detailsSacramentProgram h2 {
+  text-align: center;
+  margin-top: 10px;
+  grid-column: 1/4;
+}
+
+.detailsProgramDate {
+  font-size: 1.5em;
+  text-align: center;
+  grid-column: 1/4;
+}
+
+.detailsTitleFormat {
+  font-size: 1.4em;
+  padding-left: 50px;
+  margin: 15px 5px;
+  margin-bottom: 0;
+}
+
+.detailsNameFormat {
+  font-size: 1.3em;
+  margin: 5px;
+  text-align: right;
+  padding-right: 50px;
+  margin-bottom: 0;
+}
+
+.detailsHymnFormat {
+  font-size: 1.3em;
+  margin: 0;
+  margin-top: 0;
+  text-align: center;
+  grid-column: 1/4;
+  padding-bottom: 15px;
+  font-style: italic;
+}
+
+.passingSacrament {
+  font-size: 1.5em;
+  grid-column: 1/4;
+  text-align: center;
+}
+
+.detailsSacramentSpeakers {
+  grid-column: 1/4;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.specialMusicalTitle {
+  grid-column: 1/4;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.specialMusicalName {
+  grid-column: 1/4;
+  font-size: 1.5em;
+  text-align: center;
+}

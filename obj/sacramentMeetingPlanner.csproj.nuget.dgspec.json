@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kevincastro/Desktop/BYU-I/Spring 2022/NET Development 365/sacramentMeetingPlanner/sacramentMeetingPlanner.csproj": {}
+    "C:\\Users\\benja\\Documents\\CIT 365\\sacramentMeetingPlanner\\sacrament-meeting-planner\\sacramentMeetingPlanner.csproj": {}
   },
   "projects": {
-    "/Users/kevincastro/Desktop/BYU-I/Spring 2022/NET Development 365/sacramentMeetingPlanner/sacramentMeetingPlanner.csproj": {
+    "C:\\Users\\benja\\Documents\\CIT 365\\sacramentMeetingPlanner\\sacrament-meeting-planner\\sacramentMeetingPlanner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kevincastro/Desktop/BYU-I/Spring 2022/NET Development 365/sacramentMeetingPlanner/sacramentMeetingPlanner.csproj",
+        "projectUniqueName": "C:\\Users\\benja\\Documents\\CIT 365\\sacramentMeetingPlanner\\sacrament-meeting-planner\\sacramentMeetingPlanner.csproj",
         "projectName": "sacramentMeetingPlanner",
-        "projectPath": "/Users/kevincastro/Desktop/BYU-I/Spring 2022/NET Development 365/sacramentMeetingPlanner/sacramentMeetingPlanner.csproj",
-        "packagesPath": "/Users/kevincastro/.nuget/packages/",
-        "outputPath": "/Users/kevincastro/Desktop/BYU-I/Spring 2022/NET Development 365/sacramentMeetingPlanner/obj/",
+        "projectPath": "C:\\Users\\benja\\Documents\\CIT 365\\sacramentMeetingPlanner\\sacrament-meeting-planner\\sacramentMeetingPlanner.csproj",
+        "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\benja\\Documents\\CIT 365\\sacramentMeetingPlanner\\sacrament-meeting-planner\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/kevincastro/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -75,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.300/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

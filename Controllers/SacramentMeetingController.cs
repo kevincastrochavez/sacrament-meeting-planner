@@ -49,6 +49,26 @@ namespace sacramentMeetingPlanner.Controllers
                 return NotFound();
             }
 
+            // var speaker = await _context.Speaker
+            //     .Include(s => s.SacramentMeeting)
+            //     .FirstOrDefaultAsync(m => m.SpeakerID == id);
+            var speakers = from s in _context.Speaker
+                            select s;
+
+            speakers = speakers.Where(s => s.SacramentMeetingID == sacramentMeeting.SacramentMeetingID);
+            var speakerCounter = 0;
+            foreach (var person in speakers)
+            {
+                speakerCounter++;
+            }
+            ViewData["SacramentSpeakers"] = speakers;
+            ViewData["SpeakerCounter"] = speakerCounter;
+
+            // foreach (var person in speakers)
+            // {
+            //     Console.WriteLine(person.Name);
+            // }
+            // Console.WriteLine(speakers);
             return View(sacramentMeeting);
         }
 

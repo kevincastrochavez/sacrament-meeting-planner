@@ -14,7 +14,7 @@ namespace sacramentMeetingPlanner.Models
         public string Name { get; set; }
 
         [Required]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z ]*$")]
         [Display(Name = "Speaker Subject")]
         public string SubjectType { get; set; }
 
