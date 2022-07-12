@@ -61,10 +61,9 @@ namespace sacramentMeetingPlanner.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Console.WriteLine("Worked");
                 _context.Add(speaker);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Create));
             }
             // var errors = ModelState
             //     .Where(x => x.Value.Errors.Count > 0)

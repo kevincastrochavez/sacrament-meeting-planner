@@ -147,7 +147,7 @@ namespace sacramentMeetingPlanner.Models
                     new Hymn
                     {
                         Number = 17,
-                        Title = "Awake, Ye Saints of God, Awak"
+                        Title = "Awake, Ye Saints of God, Awake"
                     },
 
                     new Hymn

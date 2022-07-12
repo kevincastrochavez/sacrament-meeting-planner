@@ -67,23 +67,25 @@ namespace sacramentMeetingPlanner.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("SacramentMeetingID,Invocation,Benediction,Date,OpeningHymnID,SacramentHymnID,ClosingHymnID,DismissalHymnID,PresidingID,ConductingID,HymnID,BishopricID")] SacramentMeeting sacramentMeeting)
         {
-            // Console.WriteLine(ModelState.IsValid);
             if (ModelState.IsValid)
             {
-                // Console.WriteLine("Worked");
                 _context.Add(sacramentMeeting);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                // return RedirectToAction(nameof(Index));
+                return RedirectToRoute(new {
+                    controller = "Speaker",
+                    action = "Create"
+                });
             }
-            var errors = ModelState
-                .Where(x => x.Value.Errors.Count > 0)
-                .Select(x => new { x.Key, x.Value.Errors })
-                .ToArray();
-                foreach (var item in errors)
-                {
-                    Console.WriteLine(item);
-                }
-            // Console.WriteLine("Broke");
+            // var errors = ModelState
+            //     .Where(x => x.Value.Errors.Count > 0)
+            //     .Select(x => new { x.Key, x.Value.Errors })
+            //     .ToArray();
+            //     foreach (var item in errors)
+            //     {
+            //         Console.WriteLine(item);
+            //     }
+
             ViewData["BishopricID"] = new SelectList(_context.Set<Bishopric>(), "BishopricID", "Calling", sacramentMeeting.BishopricID);
             ViewData["HymnID"] = new SelectList(_context.Set<Hymn>(), "HymnID", "Title", sacramentMeeting.HymnID);
             return View(sacramentMeeting);
