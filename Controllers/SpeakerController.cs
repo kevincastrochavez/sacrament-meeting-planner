@@ -46,9 +46,10 @@ namespace sacramentMeetingPlanner.Controllers
         }
 
         // GET: Speaker/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            ViewData["SacramentMeetingID"] = new SelectList(_context.Set<SacramentMeeting>(), "SacramentMeetingID", "Date");
+            // Console.WriteLine(id);
+            ViewData["SacramentMeetingID"] = id;
             return View();
         }
 
@@ -57,7 +58,7 @@ namespace sacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SpeakerID,Name,SubjectType,Gender,SacramentMeetingID")] Speaker speaker)
+        public async Task<IActionResult> Create([Bind("SpeakerID,Name,SubjectType,Gender,SacramentMeetingID")] Speaker speaker, int? id)
         {
             if (ModelState.IsValid)
             {
@@ -65,16 +66,9 @@ namespace sacramentMeetingPlanner.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Create));
             }
-            // var errors = ModelState
-            //     .Where(x => x.Value.Errors.Count > 0)
-            //     .Select(x => new { x.Key, x.Value.Errors })
-            //     .ToArray();
-            //     foreach (var item in errors)
-            //     {
-            //         Console.WriteLine(item);
-            //     }
-            Console.WriteLine("Broke");
-            ViewData["SacramentMeetingID"] = new SelectList(_context.Set<SacramentMeeting>(), "SacramentMeetingID", "Date", speaker.SacramentMeetingID);
+
+            ViewData["SacramentMeetingID"] = id;
+
             return View(speaker);
         }
 

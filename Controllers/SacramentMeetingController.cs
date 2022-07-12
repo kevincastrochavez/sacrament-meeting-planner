@@ -74,17 +74,10 @@ namespace sacramentMeetingPlanner.Controllers
                 // return RedirectToAction(nameof(Index));
                 return RedirectToRoute(new {
                     controller = "Speaker",
-                    action = "Create"
+                    action = "Create",
+                    id = sacramentMeeting.SacramentMeetingID
                 });
             }
-            // var errors = ModelState
-            //     .Where(x => x.Value.Errors.Count > 0)
-            //     .Select(x => new { x.Key, x.Value.Errors })
-            //     .ToArray();
-            //     foreach (var item in errors)
-            //     {
-            //         Console.WriteLine(item);
-            //     }
 
             ViewData["BishopricID"] = new SelectList(_context.Set<Bishopric>(), "BishopricID", "Calling", sacramentMeeting.BishopricID);
             ViewData["HymnID"] = new SelectList(_context.Set<Hymn>(), "HymnID", "Title", sacramentMeeting.HymnID);

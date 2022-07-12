@@ -9826,26 +9826,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\benja\\.nuget\\packages\\": {}
+    "/Users/kevincastro/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benja\\Documents\\CIT 365\\sacramentMeetingPlanner\\sacrament-meeting-planner\\sacramentMeetingPlanner.csproj",
+      "projectUniqueName": "/Users/kevincastro/Desktop/BYU-I/Spring 2022/NET Development 365/sacramentMeetingPlanner/sacramentMeetingPlanner.csproj",
       "projectName": "sacramentMeetingPlanner",
-      "projectPath": "C:\\Users\\benja\\Documents\\CIT 365\\sacramentMeetingPlanner\\sacrament-meeting-planner\\sacramentMeetingPlanner.csproj",
-      "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benja\\Documents\\CIT 365\\sacramentMeetingPlanner\\sacrament-meeting-planner\\obj\\",
+      "projectPath": "/Users/kevincastro/Desktop/BYU-I/Spring 2022/NET Development 365/sacramentMeetingPlanner/sacramentMeetingPlanner.csproj",
+      "packagesPath": "/Users/kevincastro/.nuget/packages/",
+      "outputPath": "/Users/kevincastro/Desktop/BYU-I/Spring 2022/NET Development 365/sacramentMeetingPlanner/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/kevincastro/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9901,7 +9899,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.300/RuntimeIdentifierGraph.json"
       }
     }
   }
