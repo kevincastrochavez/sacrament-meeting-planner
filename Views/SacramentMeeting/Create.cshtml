@@ -1,17 +1,18 @@
 @model sacramentMeetingPlanner.Models.SacramentMeeting
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>SacramentMeeting</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SacramentMeetingID" />
             <div class="form-group">
                 <label asp-for="Invocation" class="control-label"></label>
                 <input asp-for="Invocation" class="form-control" />
@@ -29,53 +30,41 @@
             </div>
             <div class="form-group">
                 <label asp-for="OpeningHymnID" class="control-label"></label>
-                <select asp-for="OpeningHymnID" class="form-control" asp-items="ViewBag.HymnID">
-                    <option value="">Select Hymn</option>
-                </select>
+                <select asp-for="OpeningHymnID" class="form-control" asp-items="ViewBag.HymnID"></select>
                 <span asp-validation-for="OpeningHymnID" class="text-danger"></span>
             </div>
-            @* <div class="form-group">
+            <!-- @* <div class="form-group">
                 <label asp-for="HymnID" class="control-label"></label>
                 <select asp-for="HymnID" class="form-control" asp-items="ViewBag.HymnID"></select>
                 <span asp-validation-for="HymnID" class="text-danger"></span>
-            </div> *@
+            </div> *@ -->
             <div class="form-group">
                 <label asp-for="SacramentHymnID" class="control-label"></label>
-                <select asp-for="SacramentHymnID" class="form-control" asp-items="ViewBag.HymnID">
-                    <option value="">Select Hymn</option>
-                </select>
+                <select asp-for="SacramentHymnID" class="form-control" asp-items="ViewBag.HymnID"></select>
                 <span asp-validation-for="SacramentHymnID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClosingHymnID" class="control-label"></label>
-                <select asp-for="ClosingHymnID" class="form-control" asp-items="ViewBag.HymnID">
-                    <option value="">Select Hymn</option>
-                </select>
+                <select asp-for="ClosingHymnID" class="form-control" asp-items="ViewBag.HymnID"></select>
                 <span asp-validation-for="ClosingHymnID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DismissalHymnID" class="control-label"></label>
-                <select asp-for="DismissalHymnID" class="form-control" asp-items="ViewBag.HymnID">
-                    <option value="">Select Hymn</option>
-                </select>
+                <select asp-for="DismissalHymnID" class="form-control" asp-items="ViewBag.HymnID"></select>
                 <span asp-validation-for="DismissalHymnID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PresidingID" class="control-label"></label>
-                <select asp-for="PresidingID" class="form-control" asp-items="ViewBag.BishopricID">
-                    <option value="">Select Bishopric Member</option>
-                </select>
+                <select asp-for="PresidingID" class="form-control" asp-items="ViewBag.BishopricID"></select>
                 <span asp-validation-for="PresidingID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ConductingID" class="control-label"></label>
-                <select asp-for="ConductingID" class="form-control" asp-items="ViewBag.BishopricID">
-                    <option value="">Select Bishopric Member</option>
-                </select>
+                <select asp-for="ConductingID" class="form-control" asp-items="ViewBag.BishopricID"></select>
                 <span asp-validation-for="ConductingID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>

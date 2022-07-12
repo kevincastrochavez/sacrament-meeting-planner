@@ -107,7 +107,7 @@ namespace sacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SacramentMeetingID,Invocation,Benediction,Date,OpeningHymn,SacramentHymn,ClosingHymn,DismissalHymn,Presiding,Conducting,SpeakerID,BishopricID,HymnID")] SacramentMeeting sacramentMeeting)
+        public async Task<IActionResult> Edit(int id, [Bind("SacramentMeetingID,Invocation,Benediction,Date,OpeningHymnID,SacramentHymnID,ClosingHymnID,DismissalHymnID,PresidingID,ConductingID,HymnID,BishopricID")] SacramentMeeting sacramentMeeting)
         {
             if (id != sacramentMeeting.SacramentMeetingID)
             {
