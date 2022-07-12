@@ -22,9 +22,8 @@ namespace sacramentMeetingPlanner.Controllers
         // GET: Speaker
         public async Task<IActionResult> Index()
         {
-              return _context.Speaker != null ? 
-                          View(await _context.Speaker.ToListAsync()) :
-                          Problem("Entity set 'sacramentMeetingPlannerContext.Speaker'  is null.");
+            var speakerContext = _context.Speaker.Include(s => s.SacramentMeeting);
+            return View(await speakerContext.ToListAsync());
         }
 
         // GET: Speaker/Details/5
@@ -36,6 +35,7 @@ namespace sacramentMeetingPlanner.Controllers
             }
 
             var speaker = await _context.Speaker
+                .Include(s => s.SacramentMeeting)
                 .FirstOrDefaultAsync(m => m.SpeakerID == id);
             if (speaker == null)
             {
@@ -48,6 +48,7 @@ namespace sacramentMeetingPlanner.Controllers
         // GET: Speaker/Create
         public IActionResult Create()
         {
+            ViewData["SacramentMeetingID"] = new SelectList(_context.Set<SacramentMeeting>(), "SacramentMeetingID", "Date");
             return View();
         }
 
@@ -62,8 +63,18 @@ namespace sacramentMeetingPlanner.Controllers
             {
                 _context.Add(speaker);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Create));
             }
+            // var errors = ModelState
+            //     .Where(x => x.Value.Errors.Count > 0)
+            //     .Select(x => new { x.Key, x.Value.Errors })
+            //     .ToArray();
+            //     foreach (var item in errors)
+            //     {
+            //         Console.WriteLine(item);
+            //     }
+            Console.WriteLine("Broke");
+            ViewData["SacramentMeetingID"] = new SelectList(_context.Set<SacramentMeeting>(), "SacramentMeetingID", "Date", speaker.SacramentMeetingID);
             return View(speaker);
         }
 

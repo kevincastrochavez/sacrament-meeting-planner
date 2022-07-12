@@ -30,13 +30,13 @@ namespace sacramentMeetingPlanner.Models
                     new Bishopric
                     {
                         Name = "Kevin C",
-                        Calling = "1st Councilor"
+                        Calling = "1st Counselor"
                     },
 
                     new Bishopric
                     {
                         Name = "Tim T",
-                        Calling = "2 Councilor"
+                        Calling = "2nd Counselor"
                     }
                 );
                 context.SaveChanges();
@@ -147,7 +147,7 @@ namespace sacramentMeetingPlanner.Models
                     new Hymn
                     {
                         Number = 17,
-                        Title = "Awake, Ye Saints of God, Awak"
+                        Title = "Awake, Ye Saints of God, Awake"
                     },
 
                     new Hymn

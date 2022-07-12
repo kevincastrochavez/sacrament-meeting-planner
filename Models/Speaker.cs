@@ -10,7 +10,7 @@ namespace sacramentMeetingPlanner.Models
         public int SpeakerID { get; set; }
 
         [Required]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z ]*$")]
         public string Name { get; set; }
 
         [Required]
@@ -21,8 +21,9 @@ namespace sacramentMeetingPlanner.Models
         [Required]
         public string Gender { get; set; }
 
-        public int SacramentMeetingID { get; set; }
+        [Display(Name = "Sacrament Meeting")]
+        public int? SacramentMeetingID { get; set; }
 
-        public SacramentMeeting SacramentMeeting { get; set; }
+        public SacramentMeeting? SacramentMeeting { get; set; }
     }
 }

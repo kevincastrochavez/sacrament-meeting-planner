@@ -22,31 +22,22 @@
                 @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OpeningHymn)
+                @Html.DisplayNameFor(model => model.OpeningHymnID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SacramentHymn)
+                @Html.DisplayNameFor(model => model.SacramentHymnID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClosingHymn)
+                @Html.DisplayNameFor(model => model.ClosingHymnID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DismissalHymn)
+                @Html.DisplayNameFor(model => model.DismissalHymnID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Presiding)
+                @Html.DisplayNameFor(model => model.PresidingID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Conducting)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SpeakerID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bishopric)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Hymn)
+                @Html.DisplayNameFor(model => model.ConductingID)
             </th>
             <th></th>
         </tr>
@@ -64,31 +55,22 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OpeningHymn)
+                @Html.DisplayFor(modelItem => item.OpeningHymn.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SacramentHymn)
+                @Html.DisplayFor(modelItem => item.SacramentHymn.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ClosingHymn)
+                @Html.DisplayFor(modelItem => item.ClosingHymn.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DismissalHymn)
+                @Html.DisplayFor(modelItem => item.DismissalHymn.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Presiding)
+                @Html.DisplayFor(modelItem => item.Presiding.Calling)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Conducting)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpeakerID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bishopric.Calling)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hymn.Title)
+                @Html.DisplayFor(modelItem => item.Conducting.Calling)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.SacramentMeetingID">Edit</a> |
