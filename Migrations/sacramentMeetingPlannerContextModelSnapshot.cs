@@ -65,22 +65,22 @@ namespace sacramentMeetingPlanner.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("BishopricID")
+                    b.Property<int?>("BishopricID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ClosingHymn")
+                    b.Property<int?>("ClosingHymnID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Conducting")
+                    b.Property<int?>("ConductingID")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("DismissalHymn")
+                    b.Property<int?>("DismissalHymnID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("HymnID")
+                    b.Property<int?>("HymnID")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Invocation")
@@ -88,23 +88,32 @@ namespace sacramentMeetingPlanner.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("OpeningHymn")
+                    b.Property<int?>("OpeningHymnID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Presiding")
+                    b.Property<int?>("PresidingID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("SacramentHymn")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SpeakerID")
+                    b.Property<int?>("SacramentHymnID")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("SacramentMeetingID");
 
                     b.HasIndex("BishopricID");
 
+                    b.HasIndex("ClosingHymnID");
+
+                    b.HasIndex("ConductingID");
+
+                    b.HasIndex("DismissalHymnID");
+
                     b.HasIndex("HymnID");
+
+                    b.HasIndex("OpeningHymnID");
+
+                    b.HasIndex("PresidingID");
+
+                    b.HasIndex("SacramentHymnID");
 
                     b.ToTable("SacramentMeeting", (string)null);
                 });
@@ -123,10 +132,7 @@ namespace sacramentMeetingPlanner.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("SacramentMeetingID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SacramentMeetingID1")
+                    b.Property<int?>("SacramentMeetingID")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("SubjectType")
@@ -135,7 +141,7 @@ namespace sacramentMeetingPlanner.Migrations
 
                     b.HasKey("SpeakerID");
 
-                    b.HasIndex("SacramentMeetingID1");
+                    b.HasIndex("SacramentMeetingID");
 
                     b.ToTable("Speaker", (string)null);
                 });
@@ -144,28 +150,58 @@ namespace sacramentMeetingPlanner.Migrations
                 {
                     b.HasOne("sacramentMeetingPlanner.Models.Bishopric", "Bishopric")
                         .WithMany()
-                        .HasForeignKey("BishopricID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BishopricID");
+
+                    b.HasOne("sacramentMeetingPlanner.Models.Hymn", "ClosingHymn")
+                        .WithMany()
+                        .HasForeignKey("ClosingHymnID");
+
+                    b.HasOne("sacramentMeetingPlanner.Models.Bishopric", "Conducting")
+                        .WithMany()
+                        .HasForeignKey("ConductingID");
+
+                    b.HasOne("sacramentMeetingPlanner.Models.Hymn", "DismissalHymn")
+                        .WithMany()
+                        .HasForeignKey("DismissalHymnID");
 
                     b.HasOne("sacramentMeetingPlanner.Models.Hymn", "Hymn")
                         .WithMany()
-                        .HasForeignKey("HymnID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("HymnID");
+
+                    b.HasOne("sacramentMeetingPlanner.Models.Hymn", "OpeningHymn")
+                        .WithMany()
+                        .HasForeignKey("OpeningHymnID");
+
+                    b.HasOne("sacramentMeetingPlanner.Models.Bishopric", "Presiding")
+                        .WithMany()
+                        .HasForeignKey("PresidingID");
+
+                    b.HasOne("sacramentMeetingPlanner.Models.Hymn", "SacramentHymn")
+                        .WithMany()
+                        .HasForeignKey("SacramentHymnID");
 
                     b.Navigation("Bishopric");
 
+                    b.Navigation("ClosingHymn");
+
+                    b.Navigation("Conducting");
+
+                    b.Navigation("DismissalHymn");
+
                     b.Navigation("Hymn");
+
+                    b.Navigation("OpeningHymn");
+
+                    b.Navigation("Presiding");
+
+                    b.Navigation("SacramentHymn");
                 });
 
             modelBuilder.Entity("sacramentMeetingPlanner.Models.Speaker", b =>
                 {
                     b.HasOne("sacramentMeetingPlanner.Models.SacramentMeeting", "SacramentMeeting")
                         .WithMany()
-                        .HasForeignKey("SacramentMeetingID1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SacramentMeetingID");
 
                     b.Navigation("SacramentMeeting");
                 });

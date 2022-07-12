@@ -30,13 +30,13 @@ namespace sacramentMeetingPlanner.Models
                     new Bishopric
                     {
                         Name = "Kevin C",
-                        Calling = "1st Councilor"
+                        Calling = "1st Counselor"
                     },
 
                     new Bishopric
                     {
                         Name = "Tim T",
-                        Calling = "2 Councilor"
+                        Calling = "2nd Counselor"
                     }
                 );
                 context.SaveChanges();
