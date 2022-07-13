@@ -80,6 +80,7 @@ namespace sacramentMeetingPlanner.Controllers
                 return NotFound();
             }
 
+            ViewData["SacramentMeetingID"] = id;
             var speaker = await _context.Speaker.FindAsync(id);
             if (speaker == null)
             {

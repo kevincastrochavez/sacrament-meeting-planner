@@ -65,7 +65,7 @@ namespace sacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SacramentMeetingID,Invocation,Benediction,Date,OpeningHymnID,SacramentHymnID,ClosingHymnID,DismissalHymnID,PresidingID,ConductingID,HymnID,BishopricID")] SacramentMeeting sacramentMeeting)
+        public async Task<IActionResult> Create([Bind("Invocation,Benediction,Date,OpeningHymnID,SacramentHymnID,ClosingHymnID,DismissalHymnID,PresidingID,ConductingID,HymnID,BishopricID")] SacramentMeeting sacramentMeeting)
         {
             if (ModelState.IsValid)
             {
@@ -74,8 +74,7 @@ namespace sacramentMeetingPlanner.Controllers
                 // return RedirectToAction(nameof(Index));
                 return RedirectToRoute(new {
                     controller = "Speaker",
-                    action = "Create",
-                    id = sacramentMeeting.SacramentMeetingID
+                    action = "Create"
                 });
             }
 
