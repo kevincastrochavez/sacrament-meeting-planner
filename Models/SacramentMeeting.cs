@@ -23,16 +23,22 @@ namespace sacramentMeetingPlanner.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
+        [Display(Name = "Opening Hymn")]
         public int? OpeningHymnID { get; set; }
 
+        [Display(Name = "Sacrament Hymn")]
         public int? SacramentHymnID { get; set; }
 
+         [Display(Name = "Closing Hymn")]
         public int? ClosingHymnID { get; set; }
 
+         [Display(Name = "Dismissal Hymn")]
         public int? DismissalHymnID { get; set; }
         
+         [Display(Name = "Presiding")]
         public int? PresidingID { get; set; }
 
+         [Display(Name = "Conducting")]
         public int? ConductingID { get; set; }
 
         // [Display(Name = "Musical Number Hymn")]
@@ -55,16 +61,12 @@ namespace sacramentMeetingPlanner.Models
 
         public Hymn? Hymn { get; set; }
 
-        [Display(Name = "Opening Hymn")]
         public Hymn? OpeningHymn {get; set; }
 
-        [Display(Name = "Sacrament Hymn")]
         public Hymn? SacramentHymn {get; set; }
 
-        [Display(Name = "Closing Hymn")]
         public Hymn? ClosingHymn {get; set; }
 
-        [Display(Name = "Dismissal Hymn")]
         public Hymn? DismissalHymn {get; set; }
 
     }
