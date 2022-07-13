@@ -29,16 +29,16 @@ namespace sacramentMeetingPlanner.Models
         [Display(Name = "Sacrament Hymn")]
         public int? SacramentHymnID { get; set; }
 
-         [Display(Name = "Closing Hymn")]
+        [Display(Name = "Closing Hymn")]
         public int? ClosingHymnID { get; set; }
 
-         [Display(Name = "Dismissal Hymn")]
+        [Display(Name = "Dismissal Hymn")]
         public int? DismissalHymnID { get; set; }
         
-         [Display(Name = "Presiding")]
+        [Display(Name = "Presiding")]
         public int? PresidingID { get; set; }
 
-         [Display(Name = "Conducting")]
+        [Display(Name = "Conducting")]
         public int? ConductingID { get; set; }
 
         // [Display(Name = "Musical Number Hymn")]
@@ -49,6 +49,7 @@ namespace sacramentMeetingPlanner.Models
         // [Display(Name = "Musical Performance")]
         // public string MusicalPerformance { get; set;}
 
+        [Display(Name = "Bishopric")]
         public int? BishopricID { get; set; }
 
         public Bishopric? Bishopric { get; set; }

@@ -147,10 +147,10 @@ namespace sacramentMeetingPlanner.Controllers
                 return NotFound();
             }
 
-            var sacramentMeeting = await _context.SacramentMeeting
-                .Include(s => s.Bishopric)
-                .Include(s => s.Hymn)
+            var sacramentMeeting = await _context.SacramentMeeting.
+                Include(s => s.Bishopric).Include(s => s.Hymn).Include(s => s.OpeningHymn).Include(s => s.SacramentHymn).Include(s => s.ClosingHymn).Include(s => s.DismissalHymn).Include(s => s.Presiding).Include(s => s.Conducting)
                 .FirstOrDefaultAsync(m => m.SacramentMeetingID == id);
+
             if (sacramentMeeting == null)
             {
                 return NotFound();
