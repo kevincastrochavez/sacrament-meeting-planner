@@ -43,6 +43,7 @@ namespace sacramentMeetingPlanner.Controllers
                 .Include(s => s.DismissalHymn)
                 .Include(s => s.Presiding)
                 .Include(s => s.Conducting)
+                .Include(s => s.MusicalNumber)
                 .FirstOrDefaultAsync(m => m.SacramentMeetingID == id);
             if (sacramentMeeting == null)
             {

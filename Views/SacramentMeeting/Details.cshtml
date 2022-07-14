@@ -89,45 +89,65 @@
     <p id="sacramentHymn" class="detailsHymnFormat">"@Html.DisplayFor(mode => Model.SacramentHymn.Title)"</p>
     <p class="passingSacrament"><strong>Passing of the Sacrament by the Aaronic Priesthood</strong></p>
     <div id="detailsSacramentSpeakers" class="detailsSacramentSpeakers">
-        @foreach (var person in ViewBag.SacramentSpeakers)
+        @if (ViewBag.SpeakerCounter != 0)
         {
-            @* ViewBag.personCounter += 1;
-
-            @if (Math.Floor(ViewBag.SpeakerCounter / 2) == ViewBag.personCounter)
+            @foreach (var person in ViewBag.SacramentSpeakers)
             {
-                @if (Model.IntermediateHymn != null)
+                ViewBag.personCounter += 1;
+
+                @if (Math.Floor(ViewBag.SpeakerCounter / 2) == ViewBag.personCounter)
                 {
-                    <p class="detailsTitleFormat"><strong>Intermediate Hymn</strong></p>
-                    <p class="fillerDots">....................................</p>
-                    <p class="detailsNameFormat">Hymn #@Html.DisplayFor(mode => Model.IntermediateHymn.Number)</p>
-                    <p id="intermediateHymn" class="detailsHymnFormat">"@Html.DisplayFor(mode => Model.IntermediateHymn.Title)"</p>
+                    @if (Model.MusicalNumber != null)
+                    {
+                        <p class="detailsTitleFormat"><strong>Intermediate Hymn</strong></p>
+                        <p class="fillerDots">....................................</p>
+                        <p class="detailsNameFormat">Hymn #@Html.DisplayFor(mode => Model.MusicalNumber.Number)</p>
+                        <p id="intermediateHymn" class="detailsHymnFormat">"@Html.DisplayFor(mode => Model.MusicalNumber.Title)"</p>
+                    }
+                    else if (Model.MusicalPerformance != null)
+                    {
+                        <p class="specialMusicalTitle"><strong>Special Musical Number</strong></p>
+                        <p class="specialMusicalName">"@Html.DisplayFor(mode => Model.MusicalPerformance)"</p>
+                    }
+                    else
+                    {
+                    }
+
                 }
-                else if (Model.MuscialNumber != null)
+                <p class="detailsTitleFormat"><strong>@person.SubjectType</strong></p>
+                <p class="fillerDots">....................................</p>
+                @if (person.Gender == "Male")
                 {
-                    <p class="specialMusicalTitle"><strong>Special Musical Number</strong></p>
-                    <p class="specialMusicalName">@Html.DisplayFor(mode => Model.MusicalNumber)</p>
+                    <p class="detailsNameFormat">Brother @person.Name</p>
+                }
+                else if (person.Gender == "Female")
+                {
+                    <p class="detailsNameFormat">Sister @person.Name</p>
                 }
                 else
                 {
+                    <p class="detailsNameFormat">@person.Name</p>
                 }
 
-            } *@
-            <p class="detailsTitleFormat"><strong>@person.SubjectType</strong></p>
-            <p class="fillerDots">....................................</p>
-            @if (person.Gender == "Male")
-            {
-                <p class="detailsNameFormat">Brother @person.Name</p>
             }
-            else if (person.Gender == "Female")
-            {
-                <p class="detailsNameFormat">Sister @person.Name</p>
-            }
-            else
-            {
-                <p class="detailsNameFormat">@person.Name</p>
-            }
-
+        } else {
+             @if (Model.MusicalNumberID != null)
+                    {
+                        <p class="detailsTitleFormat"><strong>Intermediate #</strong></p>
+                        <p class="fillerDots">....................................</p>
+                        <p class="detailsNameFormat">Hymn #@Html.DisplayFor(mode => Model.MusicalNumber.Number)</p>
+                        <p id="intermediateHymn" class="detailsHymnFormat">"@Html.DisplayFor(mode => Model.MusicalNumber.Title)"</p>
+                    }
+                    else if (Model.MusicalPerformance != null)
+                    {
+                        <p class="specialMusicalTitle"><strong>Special Musical Number</strong></p>
+                        <p class="specialMusicalName">"@Html.DisplayFor(mode => Model.MusicalPerformance)"</p>
+                    }
+                    else
+                    {
+                    }
         }
+
     </div>
 
     <p class="detailsTitleFormat"><strong>Closing Hymn</strong></p>
