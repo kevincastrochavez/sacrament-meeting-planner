@@ -7,78 +7,148 @@
 <h1>Details</h1>
 
 <div>
-    <h4>SacramentMeeting</h4>
+    <h4>Sacrament Meeting</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Invocation)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Invocation)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Benediction)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Benediction)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Date)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Date)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OpeningHymn)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OpeningHymnID)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OpeningHymn)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OpeningHymn.Title)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SacramentHymn)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SacramentHymnID)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SacramentHymn)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SacramentHymn.Title)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClosingHymn)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClosingHymnID)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClosingHymn)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClosingHymn.Title)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DismissalHymn)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DismissalHymnID)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DismissalHymn)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DismissalHymn.Title)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Presiding)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PresidingID)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Presiding)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Presiding.Calling)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Conducting)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ConductingID)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Conducting)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Bishopric)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Bishopric.Calling)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Hymn)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Hymn.Title)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Conducting.Calling)
         </dd>
     </dl>
 </div>
+
+<section class="detailsSacramentProgram">
+    <h2>Palmhurst Ward</h2>
+    <p class="detailsProgramDate"><strong>@Html.DisplayFor(model => model.Date)</strong></p>
+    <p class="detailsTitleFormat"><strong>Presiding</strong></p>
+    <p class="fillerDots">....................................</p>
+    <p id="presiding" class="detailsNameFormat">@Html.DisplayFor(mode => Model.Presiding.Name)</p>
+    <p class="detailsTitleFormat"><strong>Conducting</strong></p>
+    <p class="fillerDots">....................................</p>
+    <p id="conducting" class="detailsNameFormat">@Html.DisplayFor(mode => Model.Conducting.Name)</p>
+    <p class="detailsTitleFormat"><strong>Opening Hymn</strong></p>
+    <p class="fillerDots">....................................</p>
+    <p class="detailsNameFormat">Hymn #@Html.DisplayFor(mode => Model.OpeningHymn.Number)</p>
+    <p id="openingHymn" class="detailsHymnFormat">"@Html.DisplayFor(mode => Model.OpeningHymn.Title)"</p>
+    <p class="detailsTitleFormat"><strong>Invocation</strong></p>
+    <p class="fillerDots">....................................</p>
+    <p id="invocation" class="detailsNameFormat">@Html.DisplayFor(mode => Model.Invocation)</p>
+    <p class="detailsTitleFormat"><strong>Sacrament Hymn</strong></p>
+    <p class="fillerDots">....................................</p>
+    <p class="detailsNameFormat">Hymn #@Html.DisplayFor(mode => Model.SacramentHymn.Number)</p>
+    <p id="sacramentHymn" class="detailsHymnFormat">"@Html.DisplayFor(mode => Model.SacramentHymn.Title)"</p>
+    <p class="passingSacrament"><strong>Passing of the Sacrament by the Aaronic Priesthood</strong></p>
+    <div id="detailsSacramentSpeakers" class="detailsSacramentSpeakers">
+        @foreach (var person in ViewBag.SacramentSpeakers)
+        {
+            @* ViewBag.personCounter += 1;
+
+            @if (Math.Floor(ViewBag.SpeakerCounter / 2) == ViewBag.personCounter)
+            {
+                @if (Model.IntermediateHymn != null)
+                {
+                    <p class="detailsTitleFormat"><strong>Intermediate Hymn</strong></p>
+                    <p class="fillerDots">....................................</p>
+                    <p class="detailsNameFormat">Hymn #@Html.DisplayFor(mode => Model.IntermediateHymn.Number)</p>
+                    <p id="intermediateHymn" class="detailsHymnFormat">"@Html.DisplayFor(mode => Model.IntermediateHymn.Title)"</p>
+                }
+                else if (Model.MuscialNumber != null)
+                {
+                    <p class="specialMusicalTitle"><strong>Special Musical Number</strong></p>
+                    <p class="specialMusicalName">@Html.DisplayFor(mode => Model.MusicalNumber)</p>
+                }
+                else
+                {
+                }
+
+            } *@
+            <p class="detailsTitleFormat"><strong>@person.SubjectType</strong></p>
+            <p class="fillerDots">....................................</p>
+            @if (person.Gender == "Male")
+            {
+                <p class="detailsNameFormat">Brother @person.Name</p>
+            }
+            else if (person.Gender == "Female")
+            {
+                <p class="detailsNameFormat">Sister @person.Name</p>
+            }
+            else
+            {
+                <p class="detailsNameFormat">@person.Name</p>
+            }
+
+        }
+    </div>
+
+    <p class="detailsTitleFormat"><strong>Closing Hymn</strong></p>
+    <p class="fillerDots">....................................</p>
+    <p class="detailsNameFormat">Hymn #@Html.DisplayFor(mode => Model.ClosingHymn.Number)</p>
+    <p id="closingHymn" class="detailsHymnFormat">"@Html.DisplayFor(mode => Model.ClosingHymn.Title)"</p>
+    <p class="detailsTitleFormat"><strong>Benediction</strong></p>
+    <p class="fillerDots">....................................</p>
+    <p id="benediction" class="detailsNameFormat">@Html.DisplayFor(mode => Model.Benediction)</p>
+    <p class="detailsTitleFormat"><strong>Dismissal Hymn</strong></p>
+    <p class="fillerDots">....................................</p>
+    <p class="detailsNameFormat">Hymn #@Html.DisplayFor(mode => Model.DismissalHymn.Number)</p>
+    <p id="dismissalHymn" class="detailsHymnFormat">"@Html.DisplayFor(mode => Model.DismissalHymn.Title)"</p>
+</section>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.SacramentMeetingID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+<script type="text/javascript">
+    const detailsSacramentSpeakers = document.getElementById('detailsSacramentSpeakers');
+
+</script>
