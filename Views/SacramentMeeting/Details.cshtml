@@ -93,13 +93,12 @@
         {
             @foreach (var person in ViewBag.SacramentSpeakers)
             {
-                ViewBag.personCounter += 1;
-
-                @if (Math.Floor(ViewBag.SpeakerCounter / 2) == ViewBag.personCounter)
+                
+                @if (Math.Floor(ViewBag.SpeakerCounter / 2.0) == ViewBag.personCounter)
                 {
-                    @if (Model.MusicalNumber != null)
+                    @if (Model.MusicalNumberID != null)
                     {
-                        <p class="detailsTitleFormat"><strong>Intermediate Hymn</strong></p>
+                        <p class="detailsTitleFormat"><strong>Intermediate #</strong></p>
                         <p class="fillerDots">....................................</p>
                         <p class="detailsNameFormat">Hymn #@Html.DisplayFor(mode => Model.MusicalNumber.Number)</p>
                         <p id="intermediateHymn" class="detailsHymnFormat">"@Html.DisplayFor(mode => Model.MusicalNumber.Title)"</p>
@@ -128,7 +127,7 @@
                 {
                     <p class="detailsNameFormat">@person.Name</p>
                 }
-
+                ViewBag.personCounter += 1;
             }
         } else {
              @if (Model.MusicalNumberID != null)

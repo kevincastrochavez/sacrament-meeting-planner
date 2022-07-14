@@ -29,6 +29,7 @@ namespace sacramentMeetingPlanner.Controllers
         // GET: SacramentMeeting/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            Console.WriteLine(Math.Floor(2 / 2.0));
             if (id == null || _context.SacramentMeeting == null)
             {
                 return NotFound();
@@ -58,6 +59,8 @@ namespace sacramentMeetingPlanner.Controllers
 
             speakers = speakers.Where(s => s.SacramentMeetingID == sacramentMeeting.SacramentMeetingID);
             var speakerCounter = 0;
+            var personCounter = 0;
+            ViewData["personCounter"] = personCounter;
             foreach (var person in speakers)
             {
                 speakerCounter++;
