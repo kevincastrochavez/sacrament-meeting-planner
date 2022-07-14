@@ -127,6 +127,13 @@ namespace sacramentMeetingPlanner.Controllers
             }
 
             var sacramentMeeting = await _context.SacramentMeeting.FindAsync(id);
+
+            var editSpeakers = _context.Speaker.Where(x => x.SacramentMeetingID == id).ToArray();
+
+            ViewData["EditSpeakers"] = editSpeakers;
+
+            ViewData["CurrentSacramentID"] = id;
+
             if (sacramentMeeting == null)
             {
                 return NotFound();

@@ -42,7 +42,13 @@
                 </select>
                 <span asp-validation-for="SacramentHymnID" class="text-danger"></span>
             </div>
-            <a asp-action="Index" asp-controller="Speaker">Edit Speakers</a>
+            @Html.ActionLink("Add Speakers","Create", "Speaker", new {id = ViewBag.CurrentSacramentID }, null)
+
+            @foreach (var editSpeaker in ViewBag.EditSpeakers)
+            {
+                @Html.ActionLink((string)@editSpeaker.Name,"Edit", "Speaker", new {id = editSpeaker.SpeakerID, sacramentID = editSpeaker.SacramentMeetingID }, null)
+            }
+
             <div class="form-group">
                 <label asp-for="ClosingHymnID" class="control-label"></label>
                 <select asp-for="ClosingHymnID" class="form-control" asp-items="ViewBag.HymnID">

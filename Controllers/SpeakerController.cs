@@ -73,14 +73,15 @@ namespace sacramentMeetingPlanner.Controllers
         }
 
         // GET: Speaker/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, int sacramentID)
         {
             if (id == null || _context.Speaker == null)
             {
                 return NotFound();
             }
 
-            ViewData["SacramentMeetingID"] = id;
+            ViewData["SacramentMeetingID"] = sacramentID;
+            Console.WriteLine(sacramentID);
             var speaker = await _context.Speaker.FindAsync(id);
             if (speaker == null)
             {
