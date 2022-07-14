@@ -169,7 +169,7 @@ namespace sacramentMeetingPlanner.Controllers
             }
             var sacramentMeeting = await _context.SacramentMeeting.FindAsync(id);
             
-            return View(await sacramentMeetingPlannerContext.ToListAsync());;
+            // return View(await sacramentMeetingPlannerContext.ToListAsync());;
             if (sacramentMeeting != null)
             {
                 _context.SacramentMeeting.Remove(sacramentMeeting);
