@@ -71,7 +71,7 @@ namespace sacramentMeetingPlanner.Controllers
             {
                 _context.Add(sacramentMeeting);
                 await _context.SaveChangesAsync();
-                // return RedirectToAction(nameof(Index));
+                // Console.WriteLine(sacramentMeeting.SacramentMeetingID); It cannot be accessed (returns a 0)
                 return RedirectToRoute(new {
                     controller = "Speaker",
                     action = "Create"
