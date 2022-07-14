@@ -22,7 +22,7 @@ namespace sacramentMeetingPlanner.Controllers
         // GET: SacramentMeeting
         public async Task<IActionResult> Index()
         {
-            var sacramentMeetingPlannerContext = _context.SacramentMeeting.Include(s => s.Bishopric).Include(s => s.Hymn).Include(s => s.OpeningHymn).Include(s => s.SacramentHymn).Include(s => s.ClosingHymn).Include(s => s.DismissalHymn).Include(s => s.Presiding).Include(s => s.Conducting);
+            var sacramentMeetingPlannerContext = _context.SacramentMeeting.Include(s => s.Bishopric).Include(s => s.Hymn).Include(s => s.OpeningHymn).Include(s => s.SacramentHymn).Include(s => s.ClosingHymn).Include(s => s.DismissalHymn).Include(s => s.Presiding).Include(s => s.Conducting).Include(s => s.MusicalNumber);
             return View(await sacramentMeetingPlannerContext.ToListAsync());
         }
 
@@ -85,17 +85,16 @@ namespace sacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SacramentMeetingID,Invocation,Benediction,Date,OpeningHymnID,SacramentHymnID,ClosingHymnID,DismissalHymnID,PresidingID,ConductingID,HymnID,BishopricID")] SacramentMeeting sacramentMeeting)
+        public async Task<IActionResult> Create([Bind("Invocation,Benediction,Date,OpeningHymnID,SacramentHymnID,ClosingHymnID,DismissalHymnID,PresidingID,ConductingID,HymnID,BishopricID,MusicalNumberID,MusicalPerformance")] SacramentMeeting sacramentMeeting)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(sacramentMeeting);
                 await _context.SaveChangesAsync();
-                // return RedirectToAction(nameof(Index));
+                // Console.WriteLine(sacramentMeeting.SacramentMeetingID); It cannot be accessed (returns a 0)
                 return RedirectToRoute(new {
                     controller = "Speaker",
                     action = "Create",
-                    id = sacramentMeeting.SacramentMeetingID
                 });
             }
 
@@ -127,7 +126,7 @@ namespace sacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SacramentMeetingID,Invocation,Benediction,Date,OpeningHymn,SacramentHymn,ClosingHymn,DismissalHymn,Presiding,Conducting,SpeakerID,BishopricID,HymnID")] SacramentMeeting sacramentMeeting)
+        public async Task<IActionResult> Edit(int id, [Bind("SacramentMeetingID,Invocation,Benediction,Date,OpeningHymnID,SacramentHymnID,ClosingHymnID,DismissalHymnID,PresidingID,ConductingID,HymnID,BishopricID,MusicalNumberID,MusicalPerformance")] SacramentMeeting sacramentMeeting)
         {
             if (id != sacramentMeeting.SacramentMeetingID)
             {
@@ -167,10 +166,10 @@ namespace sacramentMeetingPlanner.Controllers
                 return NotFound();
             }
 
-            var sacramentMeeting = await _context.SacramentMeeting
-                .Include(s => s.Bishopric)
-                .Include(s => s.Hymn)
+            var sacramentMeeting = await _context.SacramentMeeting.
+                Include(s => s.Bishopric).Include(s => s.Hymn).Include(s => s.OpeningHymn).Include(s => s.SacramentHymn).Include(s => s.ClosingHymn).Include(s => s.DismissalHymn).Include(s => s.Presiding).Include(s => s.Conducting).Include(s => s.MusicalNumber)
                 .FirstOrDefaultAsync(m => m.SacramentMeetingID == id);
+
             if (sacramentMeeting == null)
             {
                 return NotFound();
@@ -189,6 +188,8 @@ namespace sacramentMeetingPlanner.Controllers
                 return Problem("Entity set 'sacramentMeetingPlannerContext.SacramentMeeting'  is null.");
             }
             var sacramentMeeting = await _context.SacramentMeeting.FindAsync(id);
+            
+            // return View(await sacramentMeetingPlannerContext.ToListAsync());;
             if (sacramentMeeting != null)
             {
                 _context.SacramentMeeting.Remove(sacramentMeeting);

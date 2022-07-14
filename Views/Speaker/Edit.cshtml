@@ -28,17 +28,19 @@
                 <input asp-for="Gender" class="form-control" />
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SacramentMeetingID" class="control-label"></label>
-                <input asp-for="SacramentMeetingID" class="form-control" />
-                <span asp-validation-for="SacramentMeetingID" class="text-danger"></span>
-            </div>
+            <input asp-for="SacramentMeetingID" class="form-control" hidden value="" id="speakerSacramentID"/>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+    const sacId = @ViewBag.SacramentMeetingID;
+    const input = document.getElementById('speakerSacramentID');
+    input.value = sacId;
+</script>
 
 <div>
     <a asp-action="Index">Back to List</a>

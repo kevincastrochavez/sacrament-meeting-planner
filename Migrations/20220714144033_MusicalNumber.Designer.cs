@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sacramentMeetingPlanner.Data;
 
@@ -10,9 +11,10 @@ using sacramentMeetingPlanner.Data;
 namespace sacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(sacramentMeetingPlannerContext))]
-    partial class sacramentMeetingPlannerContextModelSnapshot : ModelSnapshot
+    [Migration("20220714144033_MusicalNumber")]
+    partial class MusicalNumber
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.6");
@@ -92,6 +94,7 @@ namespace sacramentMeetingPlanner.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("MusicalPerformance")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("OpeningHymnID")

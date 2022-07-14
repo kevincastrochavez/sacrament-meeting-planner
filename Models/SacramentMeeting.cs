@@ -41,14 +41,15 @@ namespace sacramentMeetingPlanner.Models
         [Display(Name = "Conducting")]
         public int? ConductingID { get; set; }
 
-        // [Display(Name = "Musical Number Hymn")]
-        // public int? MusicalNumberID { get; set; }
+        [Display(Name = "Musical Number Hymn")]
+        public int? MusicalNumberID { get; set; }
 
-        // public Hymn MusicalNumber { get; set; }
+        public Hymn? MusicalNumber { get; set; }
 
-        // [Display(Name = "Musical Performance")]
-        // public string MusicalPerformance { get; set;}
+        [Display(Name = "Musical Performance")]
+        public string? MusicalPerformance { get; set;}
 
+        [Display(Name = "Bishopric")]
         public int? BishopricID { get; set; }
 
         public Bishopric? Bishopric { get; set; }
