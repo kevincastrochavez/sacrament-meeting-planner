@@ -54,7 +54,7 @@ namespace sacramentMeetingPlanner.Controllers
             //     .Include(s => s.SacramentMeeting)
             //     .FirstOrDefaultAsync(m => m.SpeakerID == id);
             var speakers = from s in _context.Speaker
-                            select s;
+                           select s;
 
             speakers = speakers.Where(s => s.SacramentMeetingID == sacramentMeeting.SacramentMeetingID);
             var speakerCounter = 0;
@@ -93,11 +93,22 @@ namespace sacramentMeetingPlanner.Controllers
                 _context.Add(sacramentMeeting);
                 await _context.SaveChangesAsync();
                 // Console.WriteLine(sacramentMeeting.SacramentMeetingID); It cannot be accessed (returns a 0)
-                return RedirectToRoute(new {
+                return RedirectToRoute(new
+                {
                     controller = "Speaker",
                     action = "Create",
+                    id = sacramentMeeting.SacramentMeetingID
                 });
             }
+            // var errors = ModelState
+            //     .Where(x => x.Value.Errors.Count > 0)
+            //     .Select(x => new { x.Key, x.Value.Errors })
+            //     .ToArray();
+
+            // foreach (var error in errors)
+            // {
+            //     Console.WriteLine(error);
+            // }
 
             ViewData["BishopricID"] = new SelectList(_context.Set<Bishopric>(), "BishopricID", "Calling", sacramentMeeting.BishopricID);
             ViewData["HymnID"] = new SelectList(_context.Set<Hymn>(), "HymnID", "Title", sacramentMeeting.HymnID);
@@ -189,7 +200,7 @@ namespace sacramentMeetingPlanner.Controllers
                 return Problem("Entity set 'sacramentMeetingPlannerContext.SacramentMeeting'  is null.");
             }
             var sacramentMeeting = await _context.SacramentMeeting.FindAsync(id);
-            
+
             // return View(await sacramentMeetingPlannerContext.ToListAsync());;
             if (sacramentMeeting != null)
             {
