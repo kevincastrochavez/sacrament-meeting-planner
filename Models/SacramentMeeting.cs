@@ -49,6 +49,7 @@ namespace sacramentMeetingPlanner.Models
         // [Display(Name = "Musical Performance")]
         // public string MusicalPerformance { get; set;}
 
+        [Display(Name = "Bishopric")]
         public int? BishopricID { get; set; }
 
         public Bishopric? Bishopric { get; set; }
