@@ -52,6 +52,8 @@ namespace sacramentMeetingPlanner.Migrations
                     DismissalHymnID = table.Column<int>(type: "INTEGER", nullable: true),
                     PresidingID = table.Column<int>(type: "INTEGER", nullable: true),
                     ConductingID = table.Column<int>(type: "INTEGER", nullable: true),
+                    MusicalNumberID = table.Column<int>(type: "INTEGER", nullable: true),
+                    MusicalPerformance = table.Column<string>(type: "TEXT", nullable: true),
                     BishopricID = table.Column<int>(type: "INTEGER", nullable: true),
                     HymnID = table.Column<int>(type: "INTEGER", nullable: true)
                 },
@@ -86,6 +88,11 @@ namespace sacramentMeetingPlanner.Migrations
                     table.ForeignKey(
                         name: "FK_SacramentMeeting_Hymn_HymnID",
                         column: x => x.HymnID,
+                        principalTable: "Hymn",
+                        principalColumn: "HymnID");
+                    table.ForeignKey(
+                        name: "FK_SacramentMeeting_Hymn_MusicalNumberID",
+                        column: x => x.MusicalNumberID,
                         principalTable: "Hymn",
                         principalColumn: "HymnID");
                     table.ForeignKey(
@@ -145,6 +152,11 @@ namespace sacramentMeetingPlanner.Migrations
                 name: "IX_SacramentMeeting_HymnID",
                 table: "SacramentMeeting",
                 column: "HymnID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SacramentMeeting_MusicalNumberID",
+                table: "SacramentMeeting",
+                column: "MusicalNumberID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SacramentMeeting_OpeningHymnID",

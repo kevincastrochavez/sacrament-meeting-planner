@@ -11,8 +11,8 @@ using sacramentMeetingPlanner.Data;
 namespace sacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(sacramentMeetingPlannerContext))]
-    [Migration("20220714144033_MusicalNumber")]
-    partial class MusicalNumber
+    [Migration("20220714180518_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -94,7 +94,6 @@ namespace sacramentMeetingPlanner.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("MusicalPerformance")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("OpeningHymnID")
