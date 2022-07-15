@@ -8,7 +8,6 @@
 
 <p>
     <a asp-action="Index" asp-controller="SacramentMeeting">Sacrament Meetings</a>
-    <a asp-action="Create">Add Speaker</a>
 </p>
 <table class="table">
     <thead>
@@ -44,7 +43,6 @@
                 @Html.DisplayFor(modelItem => item.SacramentMeeting.Date)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.SpeakerID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.SpeakerID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.SpeakerID">Delete</a>
             </td>
