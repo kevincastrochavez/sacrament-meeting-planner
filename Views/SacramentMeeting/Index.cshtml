@@ -4,12 +4,15 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="index-container">
+    <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create Meeting</a>
-    <a asp-action="Index" asp-controller="Speaker">View Speakers</a>
-</p>
+    <div class="btns">
+        <a asp-action="Index" asp-controller="Speaker" class="btn-speaker">View Speakers <i class="fa-solid fa-microphone"></i></a>
+        <a asp-action="Create">Create Meeting <i class="fa-solid fa-plus"></i></a>
+    </div>
+</div>
+    
 <table class="table">
     <thead>
         <tr>
@@ -28,14 +31,17 @@
             <th>
                 @Html.DisplayNameFor(model => model.SacramentHymnID)
             </th>
-            <th>
+            <!-- <th>
                 @Html.DisplayNameFor(model => model.MusicalNumberID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.MusicalPerformance)
-            </th>
+            </th> -->
             <th>
                 @Html.DisplayNameFor(model => model.ClosingHymnID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DismissalHymnID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PresidingID)
@@ -64,12 +70,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SacramentHymn.Title)
             </td>
-            <td>
+            <!-- <td>
                 @Html.DisplayFor(modelItem => item.MusicalNumber.Title)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MusicalPerformance)
-            </td>
+            </td> -->
             <td>
                 @Html.DisplayFor(modelItem => item.ClosingHymn.Title)
             </td>
@@ -83,9 +89,9 @@
                 @Html.DisplayFor(modelItem => item.Conducting.Calling)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.SacramentMeetingID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SacramentMeetingID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SacramentMeetingID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.SacramentMeetingID"><i class="fa-solid fa-pen"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.SacramentMeetingID"><i class="fa-solid fa-info"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.SacramentMeetingID"><i class="fa-solid fa-trash"></i></a>
             </td>
         </tr>
 }
