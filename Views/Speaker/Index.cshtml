@@ -4,11 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="speaker-index">
+    <h1>Index</h1>
 
-<p>
-    <a asp-action="Index" asp-controller="SacramentMeeting">Sacrament Meetings</a>
-</p>
+    <p>
+        <a asp-action="Index" asp-controller="SacramentMeeting" class="btn">Sacrament Meetings <i class="fa-solid fa-place-of-worship"></i></a>
+    </p>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -43,8 +45,8 @@
                 @Html.DisplayFor(modelItem => item.SacramentMeeting.Date)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.SpeakerID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SpeakerID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.SpeakerID"><i class="fa-solid fa-info"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.SpeakerID"><i class="fa-solid fa-trash"></i></a>
             </td>
         </tr>
 }

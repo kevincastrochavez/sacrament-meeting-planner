@@ -119,7 +119,9 @@ a {
 
 .btns a,
 .form-group input[type='submit'],
-.btns-container button {
+.btns-container button,
+.speakers-container > a,
+.btn {
   color: var(--link-color-create);
   border: 2px solid var(--link-color-create);
   border-radius: 8px;
@@ -129,12 +131,33 @@ a {
   background-color: transparent;
 }
 
+.speakers-container > a {
+  width: fit-content;
+  height: fit-content;
+  margin: 10px 0 20px;
+}
+
+.speakers-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.speakers-list h4 {
+  margin-bottom: 15px;
+}
+
+.speakers-list a {
+  display: block;
+}
+
 .form-group input[type='submit'] {
   margin: 20px 0 40px;
 }
 
 .btns a:hover,
-.form-group input[type='submit']:hover {
+.form-group input[type='submit']:hover,
+.speakers-container > a:hover,
+.btn:hover {
   text-decoration: none;
   background-color: var(--link-color-create);
   color: white;
@@ -142,6 +165,17 @@ a {
 
 .btns-container div {
   width: 100%;
+}
+
+#btn-delete {
+  color: var(--link-color-delete);
+  border: 2px solid var(--link-color-delete);
+  background: transparent;
+}
+
+#btn-delete:hover {
+  background-color: var(--link-color-delete);
+  color: white;
 }
 
 .btns-container button {
@@ -220,4 +254,15 @@ q .fa-info {
 
 .fa-arrow-left {
   margin-right: 5px;
+}
+
+.speakers-list {
+  margin-bottom: 10px;
+}
+
+.speaker-index {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
 }
