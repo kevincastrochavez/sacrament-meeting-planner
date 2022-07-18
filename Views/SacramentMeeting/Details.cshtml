@@ -40,6 +40,18 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.SacramentHymn.Title)
         </dd>
+        <dt class="col-sm-2 musical-number-name">
+            @Html.DisplayNameFor(model => model.MusicalNumberID)
+        </dt>
+        <dd class="col-sm-10 musical-number-text" id="musicalNumber">
+            @Html.DisplayFor(model => model.MusicalNumber.Title)
+        </dd>
+        <dt class="col-sm-2 musical-performance-name">
+            @Html.DisplayNameFor(model => model.MusicalPerformance)
+        </dt>
+        <dd class="col-sm-10 musical-performance-text" id="musicalPerformance">
+            @Html.DisplayFor(model => model.MusicalPerformance)
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ClosingHymnID)
         </dt>
@@ -163,11 +175,24 @@
 </section>
 
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.SacramentMeetingID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.SacramentMeetingID" class="btn">Edit</a> |
+    <a asp-action="Index"><i class="fa-solid fa-arrow-left"></i> Back to List</a>
 </div>
 
 <script type="text/javascript">
     const detailsSacramentSpeakers = document.getElementById('detailsSacramentSpeakers');
+    const musicalNumber = document.getElementById('musicalNumber');
+    const musicalPerformance = document.getElementById('musicalPerformance');
+    const musicalPerformanceName = document.querySelector('.musical-performance-name');
+    const musicalPerformanceText = document.querySelector('.musical-performance-text');
+    const musicalNumberName = document.querySelector('.musical-number-name');
+    const musicalNumberText = document.querySelector('.musical-number-text');
 
+    if (musicalPerformance.innerHTML.trim()) {
+        musicalNumberName.style.display = 'none';
+        musicalNumberText.style.display = 'none';
+    } else {
+        musicalPerformanceName.style.display = 'none';
+        musicalPerformanceText.style.display = 'none';
+    }
 </script>

@@ -1,3 +1,9 @@
+:root {
+  --link-color: #0588bc;
+  --link-color-create: #439d8f;
+  --link-color-delete: #dc3545;
+}
+
 html {
   font-size: 14px;
 }
@@ -15,7 +21,31 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #ebebeb;
 }
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.navbar {
+  background-color: var(--link-color-create);
+  padding: 20px 0;
+}
+/* 
+.navbar a,
+.navbar li {
+  color: white;
+}
+
+.navbar a {
+  font-size: 24px;
+}
+
+.navbar li {
+  font-size: 16px;
+} */
 
 .detailsSacramentProgram {
   background-color: rgb(171, 214, 240);
@@ -91,4 +121,180 @@ body {
   grid-column: 1/4;
   font-size: 1.5em;
   text-align: center;
+}
+
+.index-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.btns {
+  width: 320px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns a,
+.form-group input[type='submit'],
+.btns-container button,
+.speakers-container > a,
+.btn {
+  color: var(--link-color-create);
+  border: 2px solid var(--link-color-create);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+  background-color: transparent;
+}
+
+.speakers-container > a {
+  width: fit-content;
+  height: fit-content;
+  margin: 10px 0 20px;
+}
+
+.speakers-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.speakers-list h4 {
+  margin-bottom: 15px;
+}
+
+.speakers-list a {
+  display: block;
+}
+
+.form-group input[type='submit'] {
+  margin: 20px 0 40px;
+}
+
+.btns a:hover,
+.form-group input[type='submit']:hover,
+.speakers-container > a:hover,
+.btn:hover {
+  text-decoration: none;
+  background-color: var(--link-color-create);
+  color: white;
+}
+
+.btns-container div {
+  width: 100%;
+}
+
+#btn-delete {
+  color: var(--link-color-delete);
+  border: 2px solid var(--link-color-delete);
+  background: transparent;
+}
+
+#btn-delete:hover {
+  background-color: var(--link-color-delete);
+  color: white;
+}
+
+.btns-container button {
+  color: var(--link-color);
+  border: 2px solid var(--link-color);
+}
+
+.btns-container button:hover {
+  text-decoration: none;
+  background-color: var(--link-color);
+  color: white;
+}
+
+a.btn-speaker {
+  border: 2px solid var(--link-color);
+  color: var(--link-color);
+}
+
+a.btn-speaker:hover {
+  background-color: var(--link-color);
+}
+
+.table th:last-of-type {
+  min-width: 200px;
+}
+
+.table tbody td i {
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+form input,
+form select,
+.form-group button {
+  margin-bottom: 10px;
+}
+
+form input[tyoe='text'],
+form select,
+.form-control {
+  border-radius: 8px;
+  box-shadow: 0px 13px 31px rgba(12, 20, 33, 0.04),
+    0px 9.45547px 20.8947px rgba(12, 20, 33, 0.032375),
+    0px 6.58125px 13.5141px rgba(12, 20, 33, 0.027),
+    0px 4.31641px 8.38574px rgba(12, 20, 33, 0.023125),
+    0px 2.6px 5.0375px rgba(12, 20, 33, 0.02),
+    0px 1.37109px 2.99707px rgba(12, 20, 33, 0.016875),
+    0px 0.56875px 1.79219px rgba(12, 20, 33, 0.013), inset 0px 2px 1px #ffffff;
+}
+
+.form-group button {
+  display: block;
+}
+
+.btns-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-pen {
+  color: var(--link-color-create);
+  transition: all 0.2s ease-in-out;
+}
+
+.fa-pen:hover {
+  background-color: rgba(67, 157, 143, 0.3);
+}
+q .fa-info {
+  color: var(--link-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.fa-info:hover {
+  background-color: rgba(5, 136, 188, 0.3);
+}
+
+.fa-trash {
+  color: var(--link-color-delete);
+  transition: all 0.2s ease-in-out;
+}
+
+.fa-trash:hover {
+  background-color: rgba(220, 53, 69, 0.3);
+}
+
+.fa-arrow-left {
+  margin-right: 5px;
+}
+
+.speakers-list {
+  margin-bottom: 10px;
+}
+
+.speaker-index {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
 }

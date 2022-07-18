@@ -153,6 +153,7 @@ namespace sacramentMeetingPlanner.Controllers
                 return Problem("Entity set 'sacramentMeetingPlannerContext.Speaker'  is null.");
             }
             var speaker = await _context.Speaker.FindAsync(id);
+
             if (speaker != null)
             {
                 _context.Speaker.Remove(speaker);

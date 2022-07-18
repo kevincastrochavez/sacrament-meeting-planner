@@ -42,13 +42,28 @@
                 </select>
                 <span asp-validation-for="SacramentHymnID" class="text-danger"></span>
             </div>
-            @Html.ActionLink("Add Speakers","Create", "Speaker", new {id = ViewBag.CurrentSacramentID }, null)
-
-            @foreach (var editSpeaker in ViewBag.EditSpeakers)
-            {
-                @Html.ActionLink((string)@editSpeaker.Name,"Edit", "Speaker", new {id = editSpeaker.SpeakerID, sacramentID = editSpeaker.SacramentMeetingID }, null)
-            }
-
+            <div class="speakers-container">
+                <div class="speakers-list">
+                <h4>Speakers</h4>
+                @foreach (var editSpeaker in ViewBag.EditSpeakers)
+                {
+                    @Html.ActionLink((string)@editSpeaker.Name,"Edit", "Speaker", new {id = editSpeaker.SpeakerID, sacramentID = editSpeaker.SacramentMeetingID }, null)
+                }
+                </div>
+                @Html.ActionLink("Add Speakers","Create", "Speaker", new {id = ViewBag.CurrentSacramentID }, null)
+            </div>
+            <div class="form-group">
+                <label asp-for="MusicalNumberID" id="musicalNumberLabel" class="control-label"></label>
+                <select asp-for="MusicalNumberID" class="form-control" asp-items="ViewBag.HymnID">
+                    <option value="">Select Hymn</option>
+                </select>
+                <span asp-validation-for="MusicalNumberID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MusicalPerformance" id="musicalPerformanceLabel" class="control-label"></label>
+                <input asp-for="MusicalPerformance" class="form-control" />
+                <span asp-validation-for="MusicalPerformance" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="ClosingHymnID" class="control-label"></label>
                 <select asp-for="ClosingHymnID" class="form-control" asp-items="ViewBag.HymnID">
@@ -85,8 +100,26 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index"><i class="fa-solid fa-arrow-left"></i>Back to List</a>
 </div>
+
+<script type="text/javascript">
+    const musicalNumber = document.getElementById('MusicalNumberID');
+    const musicalNumberLabel = document.getElementById('musicalNumberLabel');
+    const musicalPerformance = document.getElementById('MusicalPerformance');
+    const musicalPerformanceLabel = document.getElementById('musicalPerformanceLabel');
+
+    if (musicalNumber.value ) {
+        musicalPerformance.style.display = 'none';
+        musicalPerformanceLabel.style.display = 'none';
+    } 
+
+    if (musicalPerformance.value) {
+        musicalNumber.style.display = 'none';
+        musicalNumberLabel.style.display = 'none';
+    } 
+
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
