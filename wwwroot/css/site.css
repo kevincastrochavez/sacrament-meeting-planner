@@ -33,6 +33,19 @@ a {
   background-color: var(--link-color-create);
   padding: 20px 0;
 }
+/* 
+.navbar a,
+.navbar li {
+  color: white;
+}
+
+.navbar a {
+  font-size: 24px;
+}
+
+.navbar li {
+  font-size: 16px;
+} */
 
 .detailsSacramentProgram {
   background-color: rgb(171, 214, 240);

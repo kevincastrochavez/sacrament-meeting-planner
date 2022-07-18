@@ -210,11 +210,19 @@ namespace sacramentMeetingPlanner.Controllers
                 return Problem("Entity set 'sacramentMeetingPlannerContext.SacramentMeeting'  is null.");
             }
             var sacramentMeeting = await _context.SacramentMeeting.FindAsync(id);
+            var speakers = _context.Speaker.Where(s => s.SacramentMeetingID == id).ToArray();
 
-            // return View(await sacramentMeetingPlannerContext.ToListAsync());;
             if (sacramentMeeting != null)
             {
                 _context.SacramentMeeting.Remove(sacramentMeeting);
+            }
+
+            if (speakers != null)
+            {
+                foreach (var speaker in speakers)
+                {
+                    _context.Speaker.Remove(speaker);
+                }
             }
 
             await _context.SaveChangesAsync();

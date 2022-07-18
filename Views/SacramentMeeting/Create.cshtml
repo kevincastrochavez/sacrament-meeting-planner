@@ -109,12 +109,14 @@
     const musicalPerformanceBtn = document.getElementById('addMusicalPerformance');
     const musicalNumberLabel = document.getElementById('musicalNumberLabel');
     const musicalPerformanceLabel = document.getElementById('musicalPerformanceLabel');
+    const flex = document.querySelector('.btns-container');
 
     musicalNumberBtn.addEventListener('click', function() {
         musicalNumber.removeAttribute('hidden');
         musicalPerformanceBtn.style.display = 'none';
         musicalNumberBtn.style.display = 'none';
         musicalPerformanceLabel.style.display = 'none';
+        flex.style.display = 'block';
     })
 
     musicalPerformanceBtn.addEventListener('click', function() {
@@ -122,6 +124,7 @@
         musicalPerformanceBtn.style.display = 'none';
         musicalNumberBtn.style.display = 'none';
         musicalNumberLabel.style.display = 'none';
+        flex.style.display = 'block';
     })
 </script>
 

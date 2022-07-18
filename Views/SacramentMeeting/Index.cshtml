@@ -5,7 +5,7 @@
 }
 
 <div class="index-container">
-    <h1>Index</h1>
+    <h1>Create your Program</h1>
 
     <div class="btns">
         <a asp-action="Index" asp-controller="Speaker" class="btn-speaker">View Speakers <i class="fa-solid fa-microphone"></i></a>
@@ -31,12 +31,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.SacramentHymnID)
             </th>
-            <!-- <th>
-                @Html.DisplayNameFor(model => model.MusicalNumberID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MusicalPerformance)
-            </th> -->
             <th>
                 @Html.DisplayNameFor(model => model.ClosingHymnID)
             </th>
@@ -70,12 +64,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SacramentHymn.Title)
             </td>
-            <!-- <td>
-                @Html.DisplayFor(modelItem => item.MusicalNumber.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MusicalPerformance)
-            </td> -->
             <td>
                 @Html.DisplayFor(modelItem => item.ClosingHymn.Title)
             </td>
